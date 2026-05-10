@@ -16,11 +16,13 @@ let migration_error feature =
 let _migrate_list subrw0 __dt__ l =
   List.map (subrw0 __dt__) l
 
-[%%import: MLast.expr
+[%%typedecls
+  [%%import: MLast.expr
     [@add [%%import: MLast.loc]]
     [@add [%%import: MLast.type_var]]
-    [@add [%%import: 'a Ploc.vala]]
     [@with Ploc.vala := vala]
+  ]
+  [%%import: 'a Ploc.vala]
 ]
 [@@deriving migrate
     { dispatch_type = dispatch_table_t

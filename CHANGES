@@ -1,3 +1,17 @@
+pa_ppx_regexp Version 8.04.01
+-----------------------------
+
+* [09 May 2026] 
+
+  * update source to be compat with pa_ppx 8.04.01
+
+    specifically, `pa_ppx.import` changed the behaviour of "@with"
+    [check pa_ppx/CHANGES] and this affected code here.
+
+  * Change version-numbering of pa_ppx so it matches that of Camlp5, since
+    it is almost always the case that a new version of Camlp5 requires a
+    new version of pa_ppx's base infra, and when it's new syntax, changes
+    to the various derivers to support that new syntax.
 
 pa_ppx_regexp Version 0.05
 --------------------------
