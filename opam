@@ -16,7 +16,7 @@ dev-repo: "git+https://github.com/camlp5/pa_ppx_regexp.git"
 doc: "https://github.com/camlp5/pa_ppx_regexp/doc"
 
 depends: [
-  "ocaml"       { >= "4.10.0" }
+  "ocaml"       { >= "4.11.0" }
   "camlp5-buildscripts" { >= "0.02" }
   "camlp5"      { >= "8.01.00" }
   "pa_ppx"      { >= "0.17" }
@@ -26,7 +26,7 @@ depends: [
   "ounit" { >= "2.2.7" }
   "mdx" {>= "2.3.0" & with-test}
   "fmt"
-  "pcre2" { >= "8.0.3" }
+  "pcre2" { >= "8.0.4" }
   "re" { >= "1.12.0" }
 ]
 build: [
