@@ -1,9 +1,9 @@
-pa_ppx_regexp Version 8.04.01
+pa_ppx_regexp Version 8.05.01
 -----------------------------
 
 * [09 May 2026] 
 
-  * update source to be compat with pa_ppx 8.04.01
+  * update source to be compat with pa_ppx 8.05.01
 
     specifically, `pa_ppx.import` changed the behaviour of "@with"
     [check pa_ppx/CHANGES] and this affected code here.

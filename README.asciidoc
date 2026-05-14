@@ -1,4 +1,4 @@
-`pa_ppx_regexp`: version 8.04.01: a PPX Rewriter for Perl-ish regexp operations
+`pa_ppx_regexp`: version 8.05.01: a PPX Rewriter for Perl-ish regexp operations
 ===============================================================================
 :toc:
 :toc-placement: preamble

@@ -1,4 +1,4 @@
-version: "8.04.01"
+version: "8.05.01"
 synopsis: "A Camlp5 PPX Rewriter for Perl Regexp Workalikes "
 description:
 """
@@ -18,10 +18,10 @@ doc: "https://github.com/camlp5/pa_ppx_regexp/doc"
 depends: [
   "ocaml"       { >= "4.11.0" }
   "camlp5-buildscripts" { >= "0.02" }
-  "camlp5"      { >= "8.01.00" }
-  "pa_ppx"      { >= "0.17" }
-  "pa_ppx_migrate"      { >= "0.10" }
-  "pa_ppx_static" { >= "0.01" }
+  "camlp5"      { >= "8.05.01" }
+  "pa_ppx"      { >= "8.05.01" }
+  "pa_ppx_migrate"      { >= "8.05.01" }
+  "pa_ppx_static" { >= "8.05.01" }
   "not-ocamlfind" { >= "0.10" }
   "ounit" { >= "2.2.7" }
   "mdx" {>= "2.3.0" & with-test}
