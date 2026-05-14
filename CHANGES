@@ -13,6 +13,8 @@ pa_ppx_regexp Version 8.04.01
     new version of pa_ppx's base infra, and when it's new syntax, changes
     to the various derivers to support that new syntax.
 
+  * sync config/Makefile*
+
 pa_ppx_regexp Version 0.05
 --------------------------
 
