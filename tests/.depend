@@ -1,9 +1,11 @@
-ppx_regexp.cmo ya_wrap_ocamlfind.cmo join_meta.cmo syntax_test.cmo ppx_regexp.exe syntax_test.exe ya-wrap-ocamlfind join_meta: ../local-install/lib/pa_ppx_regexp/META
-join_meta.cmo :
-join_meta.cmx :
-ppx_regexp.cmo :
-ppx_regexp.cmx :
-syntax_test.cmo :
-syntax_test.cmx :
+pa_ppx_regexp_test.cmo ya_wrap_ocamlfind.cmo join_meta.cmo syntax_test.cmo standalone_test.cmo pa_ppx_regexp_test.cmi ya_wrap_ocamlfind.cmi join_meta.cmi syntax_test.cmi standalone_test.cmi pa_ppx_regexp_test.cmx ya_wrap_ocamlfind.cmx join_meta.cmx syntax_test.cmx standalone_test.cmx: ../local-install/lib/pa_ppx_regexp/META
+pa_ppx_regexp_test.cmo :
+pa_ppx_regexp_test.cmx :
 ya_wrap_ocamlfind.cmo :
 ya_wrap_ocamlfind.cmx :
+join_meta.cmo :
+join_meta.cmx :
+syntax_test.cmo :
+syntax_test.cmx :
+standalone_test.cmo :
+standalone_test.cmx :
