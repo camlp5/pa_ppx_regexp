@@ -98,7 +98,7 @@ let parse_expr (loc : Ploc.t) s =
 
 let parse_antiquot_expr (loc : Ploc.t) s =
   try 
-    Ploc.call_with Plexer.force_antiquot_loc true
+    Ploc.call_with Pcaml.Lexer.force_antiquot_loc true
       (Grammar.Entry.parse Pcaml.expr_eoi) (Stream.of_string s)
     with Ploc.Exc(subloc, exn) ->
           let bp = Ploc.first_pos subloc in
