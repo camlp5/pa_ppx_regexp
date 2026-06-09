@@ -10,3 +10,4 @@ _build
 mk_meta.ml
 mk_meta
 *.corrected
+*.corrected.CLEANED

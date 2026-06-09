@@ -1,4 +1,4 @@
-(**pp -syntax camlp5o -package pa_ppx.import,pa_ppx_migrate *)
+(**pp -syntax camlp5o -package pa_ppx.import,pa_ppx_migrate,camlp5.extfun,camlp5.parser_quotations *)
 (* camlp5o *)
 (* pa_string.ml,v *)
 (* Copyright (c) INRIA 2007-2017 *)

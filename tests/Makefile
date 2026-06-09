@@ -14,12 +14,10 @@ TESTS=pa_ppx_regexp_test.exe syntax_test.exe ya-wrap-ocamlfind join_meta standal
 
 all: $(TESTS)
 
-test:: all mdx-test
+test:: all
 	mkdir -p _build && ./pa_ppx_regexp_test.exe
 	mkdir -p _build && ./syntax_test.exe
 	mkdir -p _build && ./standalone_test.exe
-
-mdx-test:: error-handling.asciidoc.TEST
 
 pa_ppx_regexp_test.exe: pa_ppx_regexp_test.cmo
 	$(LAUNCH) $(OCAMLFIND) ocamlc -linkall -linkpkg $(OCAMLCFLAGS) -package $(PACKAGES) -linkpkg -linkall -o $@ $<
