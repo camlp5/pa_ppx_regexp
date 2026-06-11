@@ -413,6 +413,15 @@ Perhaps we'd like only the second capture group:
 - : string -> string option = <fun>
 ```
 
+Or we'd like the second and third:
+
+```ocaml
+# [%match {|(a)?(b)(c)?|} / exc strings (2,3) re_perl] ;;
+- : string -> string option * string option = <fun>
+# [%match {|(a)?(b)(c)?|} / exc strings (2,3) pcre2] ;;
+- : string -> string option * string option = <fun>
+```
+
 And since in the regexp that capture group must match for the entire
 regexp to match, we might want to dispense with the `option`:
 
