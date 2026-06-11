@@ -8,6 +8,8 @@ open Pa_ppx_utils
 open Pa_passthru
 open Ppxutil
 
+let pp_expr pps x = MLPrinters.OP.Pretty.pp_expr pps x
+
 exception Migration_error of string
 
 let migration_error feature =
@@ -686,7 +688,9 @@ let rewrite_match arg = function
 | <:expr:< [%match $locstr:(reloc, Ploc.VaVal s)$ / $exp:optexpr$ ] >> ->
    let options = Options.convert optexpr in
    Match.build_regexp loc ~options (reloc, s)
-| _ -> assert false
+| e ->
+   Fmt.(raise_failwithf (MLast.loc_of_expr e)
+          "rewrite_match: unrecognized match-extension << %a >>" pp_expr e)
 
 let rewrite_split arg = function
   <:expr:< [%split $locstr:(reloc, Ploc.VaVal s)$ ] >> -> Split.build_regexp loc ~options:[Options.RePerl] (reloc, s)
@@ -700,16 +704,16 @@ let rewrite_pattern arg = function
    let options = Options.convert optexpr in
    Pattern.build_pattern loc ~cgroups:None ~options (patloc, s)
 | <:expr:< [%pattern $locstr:(patloc, Ploc.VaVal s)$ ] >> -> Pattern.build_pattern loc ~cgroups:None ~options:[] (patloc, s)
-| e -> Fmt.(raise_failwithf (MLast.loc_of_expr e) "pa_regexp.rewrite_pattern: unsupported extension <<%a>>"
-            Pp_MLast.pp_expr e)
+| e -> Fmt.(raise_failwithf (MLast.loc_of_expr e) "pa_regexp.rewrite_pattern: unsupported extension << %a >>"
+            pp_expr e)
 
 let rewrite_subst arg = function
   <:expr:< [%subst $locstr:(reloc, Ploc.VaVal restr)$ / $locstr:(patloc, Ploc.VaVal patstr)$ / $exp:optexpr$ ] >> ->
    let options = Options.convert optexpr in
    Subst.build_subst loc ~options (reloc, restr) (patloc, patstr)
 | <:expr:< [%subst $locstr:(reloc, Ploc.VaVal restr)$ / $locstr:(patloc, Ploc.VaVal patstr)$ ] >> -> Subst.build_subst loc ~options:[Options.RePerl] (reloc, restr) (patloc, patstr)
-| e -> Fmt.(raise_failwithf (MLast.loc_of_expr e) "pa_regexp.rewrite_subst: unsupported extension <<%a>>"
-            Pp_MLast.pp_expr e)
+| e -> Fmt.(raise_failwithf (MLast.loc_of_expr e) "pa_regexp.rewrite_subst: unsupported extension << %a >>"
+            pp_expr e)
 
 let install () = 
 let ef = EF.mk () in 

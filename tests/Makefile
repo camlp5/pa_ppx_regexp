@@ -10,7 +10,9 @@ ML= \
 ALLSRC=$(ML)
 ALLPACKAGES=$(PACKAGES)
 
-TESTS=pa_ppx_regexp_test.exe syntax_test.exe ya-wrap-ocamlfind join_meta standalone_test.exe
+TESTS=pa_ppx_regexp_test.exe syntax_test.exe ya-wrap-ocamlfind \
+	join_meta standalone_test.exe \
+	camlp5.pa_ppx_regexp camlp5.pa_ppx_regexp.opt
 
 all: $(TESTS)
 
@@ -33,6 +35,13 @@ ya-wrap-ocamlfind: ya_wrap_ocamlfind.cmo
 
 join_meta: join_meta.cmo
 	$(LAUNCH) $(OCAMLFIND) ocamlc -linkall -linkpkg -package $(PACKAGES) $< -o $@
+
+
+camlp5.pa_ppx_regexp:
+	$(LAUNCH) $(MKCAMLP5) -package pa_ppx_regexp.link -o $@
+
+camlp5.pa_ppx_regexp.opt:
+	$(LAUNCH) $(MKCAMLP5OPT) -package pa_ppx_regexp.link -o $@
 
 clean::
 	rm -rf *.cm* _build *.exe ya-wrap-ocamlfind join_meta *.NEW

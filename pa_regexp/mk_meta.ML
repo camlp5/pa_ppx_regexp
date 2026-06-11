@@ -14,13 +14,13 @@ Arg.(parse [
 
 Fmt.(pf stdout {|
 # Specifications for the "pa_ppx_regexp" preprocessor:
-requires = "camlp5,fmt,re,pcre2,pa_ppx.base,pa_ppx_static,pa_ppx_regexp_runtime,camlp5.parser_quotations"
+requires = "camlp5,fmt,re,pcre2,pa_ppx.base,pa_ppx_static,pa_ppx_regexp_runtime,camlp5.parser_quotations,camlp5.printers.full"
 version = "%s"
 description = "pa_ppx_regexp: pa_ppx_regexp rewriter"
 
 # For linking
 package "link" (
-requires = "camlp5,fmt,re,pcre2,pa_ppx.base.link,pa_ppx_static,camlp5.parser_quotations.link"
+requires = "camlp5,fmt,re,pcre2,pa_ppx.base.link,pa_ppx_static,camlp5.parser_quotations.link,camlp5.printers.full"
 archive(byte) = "pa_ppx_regexp.cmo"
 archive(native) = "pa_ppx_regexp.cmx"
 )
@@ -29,7 +29,7 @@ archive(native) = "pa_ppx_regexp.cmx"
 archive(byte,toploop) = "pa_ppx_regexp.cmo"
 
   # For the preprocessor itself:
-  requires(syntax,preprocessor) = "camlp5,fmt,re,pcre2,pa_ppx.base,pa_ppx_static,camlp5.parser_quotations"
+  requires(syntax,preprocessor) = "camlp5,fmt,re,pcre2,pa_ppx.base,pa_ppx_static,camlp5.parser_quotations,camlp5.printers.full"
   archive(syntax,preprocessor,-native) = "pa_ppx_regexp.cmo"
   archive(syntax,preprocessor,native) = "pa_ppx_regexp.cmx"
 
